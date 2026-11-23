@@ -3,65 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aakrosh's personal portfolio — MIS, Advanced Excel, data reporting and creative projects.">
-  <title>Aakrosh | Personal Portfolio</title>
+  <meta name="description" content="Aakrosh's portfolio — MIS, Advanced Excel, reporting and learning projects.">
+  <title>Aakrosh | Portfolio</title>
   <style>
     :root {
-      --bg: #0b1020;
-      --panel: #131c31;
-      --text: #eef3ff;
-      --muted: #aab6cc;
-      --accent: #68d5ff;
-      --line: rgba(255,255,255,.11);
+      --bg: #0c0715;
+      --bg-soft: #140d22;
+      --panel: #1b1230;
+      --panel-2: #24163d;
+      --purple: #a855f7;
+      --violet: #c084fc;
+      --neon: #e879f9;
+      --text: #f7f0ff;
+      --muted: #b9a9cc;
+      --line: rgba(216,180,254,.17);
+      --glow: 0 0 28px rgba(168,85,247,.22);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background: radial-gradient(circle at 80% 10%, #172b4a 0, transparent 32%), var(--bg);
       color: var(--text);
-      font-family: Inter, Segoe UI, Arial, sans-serif;
+      background:
+        radial-gradient(ellipse at 12% 8%, rgba(126,34,206,.22), transparent 34%),
+        radial-gradient(ellipse at 88% 30%, rgba(192,132,252,.12), transparent 32%),
+        var(--bg);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
       line-height: 1.65;
     }
     a { color: inherit; text-decoration: none; }
-    .container { width: min(1080px, 90%); margin: auto; }
+    .container { width: min(1120px, 90%); margin: auto; }
     header {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(11,16,32,.88); backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(12,7,21,.82);
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
     }
-    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { font-size: 1.35rem; font-weight: 800; letter-spacing: .5px; }
-    .brand span, .accent { color: var(--accent); }
-    nav { display: flex; gap: 22px; flex-wrap: wrap; }
-    nav a { color: var(--muted); font-size: .92rem; }
-    nav a:hover { color: var(--accent); }
-    section { padding: 82px 0; scroll-margin-top: 70px; }
-    .hero { min-height: 78vh; display: flex; align-items: center; }
-    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-size: .78rem; font-weight: 700; }
-    h1 { font-size: clamp(2.7rem, 7vw, 5rem); line-height: 1.08; margin: 14px 0 20px; }
-    h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 24px; }
-    .lead { max-width: 650px; color: var(--muted); font-size: 1.12rem; }
-    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
-    .btn { display: inline-block; padding: 11px 19px; border-radius: 9px; font-weight: 700; border: 1px solid var(--accent); }
-    .btn.primary { background: var(--accent); color: #07111f; }
-    .btn.secondary { color: var(--accent); }
-    .section-copy { max-width: 760px; color: var(--muted); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 17px; }
+    .nav {
+      min-height: 76px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+    .brand { font-size: 1.45rem; font-weight: 850; letter-spacing: .4px; }
+    .brand span { color: var(--neon); text-shadow: 0 0 18px rgba(232,121,249,.65); }
+    nav { display: flex; flex-wrap: wrap; gap: 23px; }
+    nav a { color: var(--muted); font-size: .92rem; transition: .2s; }
+    nav a:hover { color: var(--violet); }
+    section { padding: 88px 0; scroll-margin-top: 76px; }
+    .hero { min-height: 82vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero-content { position: relative; z-index: 1; }
+    .orb {
+      position: absolute; width: 340px; height: 340px; right: 5%; top: 22%;
+      border-radius: 50%; background: radial-gradient(circle, rgba(192,132,252,.24), rgba(168,85,247,.04) 65%, transparent 70%);
+      filter: blur(2px); pointer-events: none;
+    }
+    .eyebrow {
+      color: var(--neon); text-transform: uppercase; letter-spacing: 3px;
+      font-size: .76rem; font-weight: 800;
+    }
+    h1 { font-size: clamp(3rem, 8vw, 5.8rem); line-height: 1.04; margin: 18px 0 22px; letter-spacing: -2px; }
+    .gradient-text {
+      background: linear-gradient(90deg, #c084fc, #e879f9, #a855f7);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    h2 { font-size: clamp(1.9rem, 4vw, 2.65rem); line-height: 1.2; margin: 12px 0 28px; }
+    .lead { color: var(--muted); max-width: 680px; font-size: 1.12rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 21px; border-radius: 10px; font-weight: 750;
+      border: 1px solid rgba(192,132,252,.55); transition: .22s;
+    }
+    .btn.primary {
+      color: #180a27; border: 0;
+      background: linear-gradient(100deg, #c084fc, #e879f9);
+      box-shadow: 0 8px 28px rgba(168,85,247,.25);
+    }
+    .btn.secondary { color: var(--violet); background: rgba(168,85,247,.07); }
+    .btn:hover { transform: translateY(-3px); box-shadow: var(--glow); }
+    .section-head { margin-bottom: 28px; }
+    .copy { max-width: 790px; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); gap: 18px; }
     .card {
-      background: linear-gradient(145deg, rgba(25,39,65,.92), rgba(17,27,47,.92));
-      border: 1px solid var(--line); border-radius: 15px; padding: 23px;
+      background: linear-gradient(145deg, rgba(36,22,61,.92), rgba(21,13,36,.96));
+      border: 1px solid var(--line); border-radius: 17px; padding: 24px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.13); transition: .22s;
     }
-    .card h3 { color: var(--accent); margin-bottom: 9px; font-size: 1.08rem; }
-    .card p, .muted { color: var(--muted); font-size: .96rem; }
-    .tag { display: inline-block; margin: 6px 6px 0 0; padding: 5px 10px; border-radius: 99px; background: #1b2b46; color: #c9eaff; font-size: .82rem; }
-    .timeline { border-left: 2px solid var(--accent); padding-left: 22px; }
+    .card:hover { transform: translateY(-5px); border-color: rgba(216,180,254,.48); box-shadow: var(--glow); }
+    .icon {
+      width: 43px; height: 43px; display: grid; place-items: center;
+      border-radius: 12px; margin-bottom: 17px; color: #f3d9ff;
+      background: linear-gradient(135deg, rgba(168,85,247,.28), rgba(232,121,249,.13));
+      border: 1px solid rgba(216,180,254,.2); font-size: 1.2rem;
+    }
+    .card h3 { color: #e9c8ff; font-size: 1.08rem; margin-bottom: 9px; }
+    .card p { color: var(--muted); font-size: .94rem; }
+    .tag {
+      display: inline-block; margin: 13px 5px 0 0; padding: 5px 10px;
+      border-radius: 99px; color: #e9d5ff; background: rgba(168,85,247,.13);
+      border: 1px solid rgba(192,132,252,.2); font-size: .76rem;
+    }
+    .project-visual {
+      min-height: 145px; border-radius: 12px; margin-bottom: 18px; padding: 15px;
+      background: linear-gradient(135deg, #24133c, #130d24);
+      border: 1px solid rgba(216,180,254,.16); overflow: hidden;
+    }
+    .mini-top { display: flex; gap: 7px; margin-bottom: 15px; }
+    .mini-dot { width: 7px; height: 7px; border-radius: 50%; background: #c084fc; opacity: .8; }
+    .mini-kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; }
+    .mini-kpis span { height: 25px; border-radius: 5px; background: rgba(192,132,252,.17); border: 1px solid rgba(192,132,252,.18); }
+    .mini-chart { height: 55px; display: flex; align-items: end; gap: 7px; margin-top: 12px; }
+    .mini-chart i { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(#e879f9,#9333ea); }
+    .mini-chart i:nth-child(1) { height: 38%; }
+    .mini-chart i:nth-child(2) { height: 68%; }
+    .mini-chart i:nth-child(3) { height: 48%; }
+    .mini-chart i:nth-child(4) { height: 90%; }
+    .mini-chart i:nth-child(5) { height: 62%; }
+    .timeline { border-left: 2px solid rgba(192,132,252,.55); padding-left: 22px; }
     .timeline .card { margin-bottom: 16px; }
-    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); text-align: center; font-size: .9rem; }
-    @media (max-width: 650px) {
-      .nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
-      nav { gap: 12px; }
-      section { padding: 62px 0; }
-      .hero { min-height: 70vh; }
+    .contact-panel {
+      padding: 34px; border-radius: 20px;
+      background: linear-gradient(120deg, rgba(126,34,206,.2), rgba(232,121,249,.08));
+      border: 1px solid var(--line);
+    }
+    footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted); text-align: center; font-size: .88rem; }
+    @media (max-width: 680px) {
+      .nav { padding: 15px 0; align-items: flex-start; flex-direction: column; gap: 10px; }
+      nav { gap: 13px; }
+      nav a { font-size: .84rem; }
+      section { padding: 66px 0; }
+      .hero { min-height: 72vh; }
+      .orb { width: 230px; height: 230px; right: -90px; top: 12%; }
+      h1 { letter-spacing: -1px; }
+      .contact-panel { padding: 24px; }
     }
   </style>
 </head>
@@ -81,45 +153,58 @@
 
   <main>
     <section class="hero" id="home">
-      <div class="container">
-        <p class="eyebrow">Personal Portfolio</p>
-        <h1>Hello, I'm<br><span class="accent">Aakrosh.</span></h1>
-        <p class="lead">An aspiring MIS professional and curious learner interested in Advanced Excel, data management, technology and creative work.</p>
+      <div class="orb"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">Welcome to my portfolio</p>
+        <h1>Hi, I'm<br><span class="gradient-text">Aakrosh.</span></h1>
+        <p class="lead">Aspiring MIS professional | Advanced Excel learner | Curious creative thinker. I enjoy working with data, learning technology and turning ideas into practical projects.</p>
         <div class="actions">
-          <a class="btn primary" href="#projects">Explore My Work</a>
-          <a class="btn secondary" href="#contact">Get in Touch</a>
+          <a class="btn primary" href="#projects">View My Projects ↗</a>
+          <a class="btn secondary" href="#contact">Let's Connect</a>
         </div>
       </div>
     </section>
 
     <section id="about">
       <div class="container">
-        <p class="eyebrow">A little about me</p>
-        <h2>About Me</h2>
-        <p class="section-copy">I am currently learning MIS and Advanced Excel and building practical computer skills. I enjoy understanding how data can be organised, analysed and presented clearly. I am also interested in technology, sketching, guitar and exploring new ideas. My goal is to keep learning and build useful, real-world skills.</p>
+        <div class="section-head">
+          <p class="eyebrow">Get to know me</p>
+          <h2>About <span class="gradient-text">Me</span></h2>
+        </div>
+        <p class="copy">I am currently studying in Class 11 (PCB) and learning MIS & Advanced Excel. I am building practical skills in spreadsheets, data organisation and reporting. I like exploring new ideas and learning different things, including technology, sketching and guitar. I believe consistent practice and curiosity help me improve every day.</p>
       </div>
     </section>
 
     <section id="skills">
       <div class="container">
-        <p class="eyebrow">What I'm learning</p>
-        <h2>Skills</h2>
+        <div class="section-head">
+          <p class="eyebrow">What I'm learning</p>
+          <h2>My <span class="gradient-text">Skills</span></h2>
+        </div>
         <div class="grid">
           <article class="card">
-            <h3>MS Excel</h3>
-            <p>Learning formulas, functions, lookup tools, PivotTables, charts and dashboards.</p>
+            <div class="icon">▦</div>
+            <h3>Microsoft Excel</h3>
+            <p>Practising formulas, functions, lookup tools, PivotTables, charts and dashboard creation.</p>
+            <span class="tag">Excel</span><span class="tag">PivotTables</span>
           </article>
           <article class="card">
+            <div class="icon">▤</div>
             <h3>MIS & Reporting</h3>
-            <p>Learning data organisation, sales tracking and clear report preparation.</p>
+            <p>Learning data organisation, sales tracking, summaries and clear report preparation.</p>
+            <span class="tag">Reporting</span><span class="tag">Data</span>
           </article>
           <article class="card">
+            <div class="icon">⌘</div>
             <h3>Computer Skills</h3>
-            <p>Building confidence with office tools, file management and everyday computer tasks.</p>
+            <p>Developing confidence with office tools, file handling and everyday computer tasks.</p>
+            <span class="tag">MS Office</span><span class="tag">Computer Basics</span>
           </article>
           <article class="card">
+            <div class="icon">✦</div>
             <h3>Creative Interests</h3>
-            <p>Sketching, guitar, creative thinking and learning new technologies.</p>
+            <p>Sketching, guitar, creative thinking and exploring new technologies.</p>
+            <span class="tag">Creativity</span><span class="tag">Learning</span>
           </article>
         </div>
       </div>
@@ -127,41 +212,67 @@
 
     <section id="projects">
       <div class="container">
-        <p class="eyebrow">Practice work</p>
-        <h2>Projects</h2>
+        <div class="section-head">
+          <p class="eyebrow">Things I'm building</p>
+          <h2>Featured <span class="gradient-text">Projects</span></h2>
+          <p class="copy">A few practice projects from my Excel and MIS learning journey. I will add real screenshots and downloadable workbooks as each project is completed.</p>
+        </div>
         <div class="grid">
           <article class="card">
-            <h3>Excel Dashboard</h3>
-            <p>A practice dashboard using PivotTables and charts to present information visually.</p>
+            <div class="project-visual" aria-label="Illustrative dashboard preview">
+              <div class="mini-top"><i class="mini-dot"></i><i class="mini-dot"></i><i class="mini-dot"></i></div>
+              <div class="mini-kpis"><span></span><span></span><span></span></div>
+              <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <h3>Excel Sales Dashboard</h3>
+            <p>Practice dashboard concept using PivotTables, charts and summary metrics to make sales information easier to understand.</p>
             <span class="tag">Excel</span><span class="tag">Dashboard</span>
           </article>
           <article class="card">
+            <div class="project-visual" aria-label="Illustrative sales tracker preview">
+              <div class="mini-top"><i class="mini-dot"></i><i class="mini-dot"></i><i class="mini-dot"></i></div>
+              <div style="display:grid;gap:9px;margin-top:18px">
+                <span style="height:12px;width:92%;border-radius:5px;background:#8b5cf6"></span>
+                <span style="height:12px;width:70%;border-radius:5px;background:#a855f7"></span>
+                <span style="height:12px;width:82%;border-radius:5px;background:#c084fc"></span>
+                <span style="height:12px;width:55%;border-radius:5px;background:#e879f9"></span>
+              </div>
+            </div>
             <h3>Sales Rank Tracker</h3>
-            <p>A practice tracker for organising sales data and comparing performance.</p>
+            <p>Practice tracker for arranging sales data, comparing performance and presenting rankings with Excel formulas.</p>
             <span class="tag">Excel</span><span class="tag">Data Tracking</span>
           </article>
           <article class="card">
+            <div class="project-visual" aria-label="Illustrative marksheet preview">
+              <div class="mini-top"><i class="mini-dot"></i><i class="mini-dot"></i><i class="mini-dot"></i></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:16px">
+                <span style="height:19px;background:#8b5cf6;border-radius:4px"></span><span style="height:19px;background:#8b5cf6;border-radius:4px"></span><span style="height:19px;background:#8b5cf6;border-radius:4px"></span>
+                <span style="height:19px;background:#38234f;border-radius:4px"></span><span style="height:19px;background:#38234f;border-radius:4px"></span><span style="height:19px;background:#38234f;border-radius:4px"></span>
+                <span style="height:19px;background:#38234f;border-radius:4px"></span><span style="height:19px;background:#38234f;border-radius:4px"></span><span style="height:19px;background:#38234f;border-radius:4px"></span>
+              </div>
+            </div>
             <h3>Student Marksheet</h3>
-            <p>A practice spreadsheet for recording marks and calculating student results.</p>
+            <p>Practice spreadsheet for recording student marks and calculating totals, averages and results.</p>
             <span class="tag">Excel</span><span class="tag">Formulas</span>
           </article>
         </div>
-        <p class="muted" style="margin-top:16px;">These are learning projects. I will add project files and screenshots as I complete them.</p>
       </div>
     </section>
 
     <section id="education">
       <div class="container">
-        <p class="eyebrow">Learning journey</p>
-        <h2>Education</h2>
+        <div class="section-head">
+          <p class="eyebrow">My learning journey</p>
+          <h2>Education & <span class="gradient-text">Learning</span></h2>
+        </div>
         <div class="timeline">
           <article class="card">
             <h3>Class 11 — PCB</h3>
             <p>Currently studying Physics, Chemistry and Biology.</p>
           </article>
           <article class="card">
-            <h3>MIS & Advanced Excel</h3>
-            <p>Professional course currently in progress.</p>
+            <h3>MIS & Advanced Excel Course</h3>
+            <p>Currently learning spreadsheet tools, reporting and practical data skills.</p>
           </article>
         </div>
       </div>
@@ -169,19 +280,21 @@
 
     <section id="contact">
       <div class="container">
-        <p class="eyebrow">Let's connect</p>
-        <h2>Contact</h2>
-        <p class="section-copy">You can find my learning journey and projects on GitHub.</p>
-        <div class="actions">
-          <!-- Replace YOUR-USERNAME with your GitHub username -->
-          <a class="btn primary" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">Visit My GitHub</a>
+        <div class="contact-panel">
+          <p class="eyebrow">Have a project or opportunity?</p>
+          <h2>Let's <span class="gradient-text">Connect.</span></h2>
+          <p class="copy">Thanks for visiting my portfolio. You can explore my code and future projects on GitHub.</p>
+          <div class="actions">
+            <!-- Replace YOUR-USERNAME with your actual GitHub username -->
+            <a class="btn primary" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">Visit My GitHub ↗</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">© 2026 Aakrosh. Built with HTML & CSS.</div>
+    <div class="container">© 2026 Aakrosh · Designed with HTML & CSS</div>
   </footer>
 </body>
 </html>
