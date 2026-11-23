@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aakrosh's personal portfolio — MIS, Advanced Excel, data reporting and creative projects.">
+  <title>Aakrosh | Personal Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #131c31;
+      --text: #eef3ff;
+      --muted: #aab6cc;
+      --accent: #68d5ff;
+      --line: rgba(255,255,255,.11);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: radial-gradient(circle at 80% 10%, #172b4a 0, transparent 32%), var(--bg);
+      color: var(--text);
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1080px, 90%); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(11,16,32,.88); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-size: 1.35rem; font-weight: 800; letter-spacing: .5px; }
+    .brand span, .accent { color: var(--accent); }
+    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav a { color: var(--muted); font-size: .92rem; }
+    nav a:hover { color: var(--accent); }
+    section { padding: 82px 0; scroll-margin-top: 70px; }
+    .hero { min-height: 78vh; display: flex; align-items: center; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-size: .78rem; font-weight: 700; }
+    h1 { font-size: clamp(2.7rem, 7vw, 5rem); line-height: 1.08; margin: 14px 0 20px; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 24px; }
+    .lead { max-width: 650px; color: var(--muted); font-size: 1.12rem; }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+    .btn { display: inline-block; padding: 11px 19px; border-radius: 9px; font-weight: 700; border: 1px solid var(--accent); }
+    .btn.primary { background: var(--accent); color: #07111f; }
+    .btn.secondary { color: var(--accent); }
+    .section-copy { max-width: 760px; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 17px; }
+    .card {
+      background: linear-gradient(145deg, rgba(25,39,65,.92), rgba(17,27,47,.92));
+      border: 1px solid var(--line); border-radius: 15px; padding: 23px;
+    }
+    .card h3 { color: var(--accent); margin-bottom: 9px; font-size: 1.08rem; }
+    .card p, .muted { color: var(--muted); font-size: .96rem; }
+    .tag { display: inline-block; margin: 6px 6px 0 0; padding: 5px 10px; border-radius: 99px; background: #1b2b46; color: #c9eaff; font-size: .82rem; }
+    .timeline { border-left: 2px solid var(--accent); padding-left: 22px; }
+    .timeline .card { margin-bottom: 16px; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); text-align: center; font-size: .9rem; }
+    @media (max-width: 650px) {
+      .nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
+      nav { gap: 12px; }
+      section { padding: 62px 0; }
+      .hero { min-height: 70vh; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">Aakrosh<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <p class="eyebrow">Personal Portfolio</p>
+        <h1>Hello, I'm<br><span class="accent">Aakrosh.</span></h1>
+        <p class="lead">An aspiring MIS professional and curious learner interested in Advanced Excel, data management, technology and creative work.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore My Work</a>
+          <a class="btn secondary" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <p class="eyebrow">A little about me</p>
+        <h2>About Me</h2>
+        <p class="section-copy">I am currently learning MIS and Advanced Excel and building practical computer skills. I enjoy understanding how data can be organised, analysed and presented clearly. I am also interested in technology, sketching, guitar and exploring new ideas. My goal is to keep learning and build useful, real-world skills.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <p class="eyebrow">What I'm learning</p>
+        <h2>Skills</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>MS Excel</h3>
+            <p>Learning formulas, functions, lookup tools, PivotTables, charts and dashboards.</p>
+          </article>
+          <article class="card">
+            <h3>MIS & Reporting</h3>
+            <p>Learning data organisation, sales tracking and clear report preparation.</p>
+          </article>
+          <article class="card">
+            <h3>Computer Skills</h3>
+            <p>Building confidence with office tools, file management and everyday computer tasks.</p>
+          </article>
+          <article class="card">
+            <h3>Creative Interests</h3>
+            <p>Sketching, guitar, creative thinking and learning new technologies.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <p class="eyebrow">Practice work</p>
+        <h2>Projects</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Excel Dashboard</h3>
+            <p>A practice dashboard using PivotTables and charts to present information visually.</p>
+            <span class="tag">Excel</span><span class="tag">Dashboard</span>
+          </article>
+          <article class="card">
+            <h3>Sales Rank Tracker</h3>
+            <p>A practice tracker for organising sales data and comparing performance.</p>
+            <span class="tag">Excel</span><span class="tag">Data Tracking</span>
+          </article>
+          <article class="card">
+            <h3>Student Marksheet</h3>
+            <p>A practice spreadsheet for recording marks and calculating student results.</p>
+            <span class="tag">Excel</span><span class="tag">Formulas</span>
+          </article>
+        </div>
+        <p class="muted" style="margin-top:16px;">These are learning projects. I will add project files and screenshots as I complete them.</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <p class="eyebrow">Learning journey</p>
+        <h2>Education</h2>
+        <div class="timeline">
+          <article class="card">
+            <h3>Class 11 — PCB</h3>
+            <p>Currently studying Physics, Chemistry and Biology.</p>
+          </article>
+          <article class="card">
+            <h3>MIS & Advanced Excel</h3>
+            <p>Professional course currently in progress.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <p class="eyebrow">Let's connect</p>
+        <h2>Contact</h2>
+        <p class="section-copy">You can find my learning journey and projects on GitHub.</p>
+        <div class="actions">
+          <!-- Replace YOUR-USERNAME with your GitHub username -->
+          <a class="btn primary" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">Visit My GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Aakrosh. Built with HTML & CSS.</div>
+  </footer>
+</body>
+</html>
